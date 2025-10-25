@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Resume Builder</title>
+  <style>
+    body { background: #f2f2f2; font-family: Arial, sans-serif; }
+    .container { background: #fff; border-radius: 10px; padding: 24px; width: 350px; margin: 30px auto; box-shadow: 0 2px 8px #ccc; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    input, textarea { width: 100%; margin-bottom: 15px; padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
+    button { width: 100%; padding: 10px; border-radius: 5px; background: #0069d9; color: #fff; border: none; font-size: 16px; cursor: pointer;}
+    button:hover { background: #0056b3; }
+    #resume { margin-top: 30px; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px #bbb; }
+    #resume h2 { margin-bottom: 8px; }
+    #resume h3 { margin-top: 15px; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Resume Builder</h1>
+    <input type="text" id="name" placeholder="Your Name" />
+    <input type="text" id="email" placeholder="Your Email" />
+    <textarea id="education" placeholder="Education"></textarea>
+    <textarea id="skills" placeholder="Skills"></textarea>
+    <textarea id="experience" placeholder="Experience"></textarea>
+    <button onclick="generateResume()">Generate Resume</button>
+    <div id="resume"></div>
+  </div>
+  <script>
+    function generateResume() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const education = document.getElementById('education').value;
+      const skills = document.getElementById('skills').value;
+      const experience = document.getElementById('experience').value;
+
+      document.getElementById('resume').innerHTML = `
+        <h2>${name}</h2>
+        <p><strong>Email:</strong> ${email}</p>
+        <h3>Education</h3>
+        <p>${education.replace(/\n/g, '<br>')}</p>
+        <h3>Skills</h3>
+        <p>${skills.replace(/\n/g, '<br>')}</p>
+        <h3>Experience</h3>
+        <p>${experience.replace(/\n/g, '<br>')}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
