@@ -3,49 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simple Resume Builder</title>
+  <title>My Portfolio</title>
   <style>
-    body { background: #f2f2f2; font-family: Arial, sans-serif; }
-    .container { background: #fff; border-radius: 10px; padding: 24px; width: 350px; margin: 30px auto; box-shadow: 0 2px 8px #ccc; }
-    h1 { text-align: center; margin-bottom: 20px; }
-    input, textarea { width: 100%; margin-bottom: 15px; padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
-    button { width: 100%; padding: 10px; border-radius: 5px; background: #0069d9; color: #fff; border: none; font-size: 16px; cursor: pointer;}
-    button:hover { background: #0056b3; }
-    #resume { margin-top: 30px; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px #bbb; }
-    #resume h2 { margin-bottom: 8px; }
-    #resume h3 { margin-top: 15px; margin-bottom: 5px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #0069d9;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    header p {
+      margin-top: 5px;
+      font-size: 1.1em;
+    }
+
+    nav {
+      background: #0056b3;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #0069d9;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #0069d9;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .about p {
+      line-height: 1.6;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: #e7f1ff;
+      border: 1px solid #b5d4ff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.95em;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: #0056b3;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .contact a {
+      color: #0069d9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      background: #0056b3;
+      color: white;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Resume Builder</h1>
-    <input type="text" id="name" placeholder="Your Name" />
-    <input type="text" id="email" placeholder="Your Email" />
-    <textarea id="education" placeholder="Education"></textarea>
-    <textarea id="skills" placeholder="Skills"></textarea>
-    <textarea id="experience" placeholder="Experience"></textarea>
-    <button onclick="generateResume()">Generate Resume</button>
-    <div id="resume"></div>
-  </div>
-  <script>
-    function generateResume() {
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const education = document.getElementById('education').value;
-      const skills = document.getElementById('skills').value;
-      const experience = document.getElementById('experience').value;
 
-      document.getElementById('resume').innerHTML = `
-        <h2>${name}</h2>
-        <p><strong>Email:</strong> ${email}</p>
-        <h3>Education</h3>
-        <p>${education.replace(/\n/g, '<br>')}</p>
-        <h3>Skills</h3>
-        <p>${skills.replace(/\n/g, '<br>')}</p>
-        <h3>Experience</h3>
-        <p>${experience.replace(/\n/g, '<br>')}</p>
-      `;
-    }
-  </script>
+  <header>
+    <h1>Your Name</h1>
+    <p>Web Developer | Designer | Creator</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm [Your Name], a passionate web developer specializing in building beautiful, responsive, and user-friendly websites. 
+      I love turning ideas into functional digital experiences using modern technologies.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Git & GitHub</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio website showcasing my projects and skills. Built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3>Todo App</h3>
+        <p>A simple to-do list app with local storage functionality to track daily tasks efficiently.</p>
+      </div>
+      <div class="project">
+        <h3>Weather Dashboard</h3>
+        <p>A weather dashboard fetching real-time weather data using an external API.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>
+      Feel free to reach out!<br>
+      📧 <a href="mailto:your.email@example.com">your.email@example.com</a><br>
+      🔗 <a href="https://github.com/yourusername" target="_blank">GitHub</a> |
+      💼 <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Name — All Rights Reserved
+  </footer>
+
 </body>
 </html>
